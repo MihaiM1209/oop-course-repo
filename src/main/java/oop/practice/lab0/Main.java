@@ -14,7 +14,7 @@ public class Main {
         System.out.printf("Hello and welcome!\n");
 
         ObjectMapper mapper = new ObjectMapper();
-        File inputFile = new File("src/main/resources/input.json");
+        File inputFile = new File("src/main/resources/lab0/input.json");
         JsonNode data = mapper.readTree(inputFile).get("data");
 
         Universe starWars = new Universe("Star Wars");
@@ -69,10 +69,10 @@ public class Main {
         }
 
         // Write output files
-        mapper.writeValue(new File("src/main/resources/output/starwars.json"), starWars);
-        mapper.writeValue(new File("src/main/resources/output/hitchhikers.json"), hitchhikers);
-        mapper.writeValue(new File("src/main/resources/output/marvel.json"), marvel);
-        mapper.writeValue(new File("src/main/resources/output/rings.json"), rings);
+        mapper.writeValue(new File("src/main/resources/lab0/output/starwars.json"), starWars);
+        mapper.writeValue(new File("src/main/resources/lab0/output/hitchhikers.json"), hitchhikers);
+        mapper.writeValue(new File("src/main/resources/lab0/output/marvel.json"), marvel);
+        mapper.writeValue(new File("src/main/resources/lab0/output/rings.json"), rings);
 
         // Summary of classifications
         System.out.println("\nClassification Summary:");

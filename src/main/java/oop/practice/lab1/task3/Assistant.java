@@ -14,13 +14,11 @@ public class Assistant {
         this.displays = new ArrayList<>();
     }
 
-    // Assigns a Display object to the assistant
     public void assignDisplay(Display display) {
         displays.add(display);
         System.out.println("Assigned display: " + display.getModel());
     }
 
-    // Assists with comparing the displays
     public void assist() {
         System.out.println("\nAssisting with display comparisons for " + name + "...");
         if (displays.isEmpty()) {
@@ -28,7 +26,6 @@ public class Assistant {
             return;
         }
 
-        // Compare each display with every other display
         for (int i = 0; i < displays.size(); i++) {
             Display currentDisplay = displays.get(i);
             for (int j = i + 1; j < displays.size(); j++) {
@@ -50,17 +47,14 @@ public class Assistant {
         }
     }
 
-    // Returns the count of assigned displays
     public int getAssignedDisplaysCount() {
         return displays.size();
     }
 
-    // Returns the Display object at a specific index
     public Display getDisplayByIndex(int index) {
         return displays.get(index);
     }
 
-    // Lists all available displays for purchase
     public void listAvailableDisplays() {
         if (displays.isEmpty()) {
             System.out.println("No displays available for purchase.");

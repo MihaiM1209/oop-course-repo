@@ -9,14 +9,12 @@ public class TextData {
     private int sentenceCount;
     private String longestWord;
 
-    // Constructor to initialize file name and content, and analyze the text
     public TextData(String fileName, String content) {
         this.fileName = fileName;
-        this.content = content;
+        this.content = content;  // Assign content
         analyzeText();
     }
 
-    // Analyze the text and gather statistics
     private void analyzeText() {
         vowelCount = countVowels(content);
         consonantCount = countConsonants(content);
@@ -25,7 +23,6 @@ public class TextData {
         longestWord = findLongestWord(content);
     }
 
-    // Count the number of vowels in the content
     private int countVowels(String text) {
         int count = 0;
         String lowerText = text.toLowerCase();
@@ -37,7 +34,6 @@ public class TextData {
         return count;
     }
 
-    // Count the number of consonants in the content
     private int countConsonants(String text) {
         int count = 0;
         String lowerText = text.toLowerCase();
@@ -49,7 +45,6 @@ public class TextData {
         return count;
     }
 
-    // Count the total letters in the content
     private int countLetters(String text) {
         int count = 0;
         for (char character : text.toCharArray()) {
@@ -60,13 +55,11 @@ public class TextData {
         return count;
     }
 
-    // Count the number of sentences in the content
     private int countSentences(String text) {
         String[] sentences = text.split("[.!?]");
         return sentences.length;
     }
 
-    // Find the longest word in the content
     private String findLongestWord(String text) {
         String[] words = text.split("\\W+");
         String longest = "";
@@ -78,36 +71,6 @@ public class TextData {
         return longest;
     }
 
-    // Getter methods for accessing private fields
-    public String getFileName() {
-        return fileName;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public int getNumberOfVowels() {
-        return vowelCount;
-    }
-
-    public int getNumberOfConsonants() {
-        return consonantCount;
-    }
-
-    public int getNumberOfLetters() {
-        return letterCount;
-    }
-
-    public int getNumberOfSentences() {
-        return sentenceCount;
-    }
-
-    public String getLongestWord() {
-        return longestWord;
-    }
-
-    // Print analysis results in a structured format
     public void printInfo() {
         System.out.println("----- Text Data Analysis -----");
         System.out.printf("File Name       : %s%n", fileName);

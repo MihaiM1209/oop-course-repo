@@ -1,5 +1,4 @@
-package oop.practice.lab2.task2;
-
+package oop.practice.lab2.task3;
 
 public class Cappuccino extends Coffee {
     private int mlOfMilk;
@@ -20,7 +19,8 @@ public class Cappuccino extends Coffee {
 
     @Override
     public void printCoffeeDetails() {
-        super.printCoffeeDetails();
-        System.out.println("Cappuccino milk: " + mlOfMilk + " ml");
+        System.out.println("Making " + getName());
+        System.out.println("Intensity set to " + getCoffeeIntensity());
+        System.out.println("Adding " + mlOfMilk + " mls of milk");
     }
 }

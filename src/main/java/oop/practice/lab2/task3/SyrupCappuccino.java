@@ -1,4 +1,4 @@
-package oop.practice.lab2.task2;
+package oop.practice.lab2.task3;
 
 public class SyrupCappuccino extends Cappuccino {
     private SyrupType syrup;
@@ -19,9 +19,7 @@ public class SyrupCappuccino extends Cappuccino {
 
     @Override
     public void printCoffeeDetails() {
-        System.out.println("Making " + getName());
-        System.out.println("Intensity set to " + getCoffeeIntensity());
-        System.out.println("Adding " + getMlOfMilk() + " mls of milk");
-        System.out.println("Adding syrup flavor: " + syrup);
+        super.printCoffeeDetails(); // Print Cappuccino details
+        System.out.println("Adding syrup of type: " + syrup);
     }
 }

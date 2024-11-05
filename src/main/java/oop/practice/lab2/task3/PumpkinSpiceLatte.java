@@ -1,4 +1,4 @@
-package oop.practice.lab2.task2;
+package oop.practice.lab2.task3;
 
 public class PumpkinSpiceLatte extends Coffee {
     private int mlOfMilk;

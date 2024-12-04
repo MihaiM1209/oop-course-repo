@@ -1,42 +1,35 @@
 package oop.practice.lab3.task3;
 
+
 import oop.practice.lab3.task1.Car;
 import oop.practice.lab3.task2.DiningService;
 import oop.practice.lab3.task2.RefuelingService;
+import oop.practice.lab3.task3.CarStation;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CarStationTest {
 
     @Test
-    public void testCarStationWithRandomInput() {
+    public void testCarStationWithQueueData() throws Exception {
         // Create services
         DiningService diningService = new DiningService();
         RefuelingService refuelingService = new RefuelingService();
+
+        // Create CarStation
         CarStation carStation = new CarStation(diningService, refuelingService);
 
-        // Random generator
-        Random random = new Random();
+        // Load cars from the queue folder (this simulates reading the files)
+        carStation.loadCarsFromQueue();
 
-        // Add 5 randomly generated cars
-        for (int i = 1; i <= 5; i++) {
-            String id = String.valueOf(i);
-            String type = random.nextBoolean() ? "Electric" : "Petrol";  // Random type
-            String passengers = random.nextBoolean() ? "Private" : "Commercial";  // Random passengers
-            boolean isDining = random.nextBoolean();  // Random dining
-            int consumption = 10 + random.nextInt(41);  // Random value between 10 and 50
-
-            Car car = new Car(id, type, passengers, isDining, consumption);
-            carStation.addCar(car);
-        }
+        // Assert that the cars are loaded correctly
+        assertTrue(carStation.carQueue.size() > 0, "There should be at least one car in the queue.");
 
         // Serve cars
         carStation.serveCars();
 
-        // Verify that all cars have been served
-        assertTrue(carStation.carQueue.isEmpty());
+        // Verify that all cars have been served and the queue is empty
+        assertTrue(carStation.carQueue.isEmpty(), "The car queue should be empty after serving all cars.");
     }
 }

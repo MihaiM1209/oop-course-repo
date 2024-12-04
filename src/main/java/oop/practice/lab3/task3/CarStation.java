@@ -4,6 +4,8 @@ import oop.practice.lab3.task1.Car;
 import oop.practice.lab3.task2.Dineable;
 import oop.practice.lab3.task2.Refuelable;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -17,6 +19,24 @@ public class CarStation {
         this.diningService = diningService;
         this.refuelingService = refuelingService;
         this.carQueue = new LinkedList<>(); // Initialize the queue
+    }
+
+    // Method to load cars from the `queue/` folder
+    public void loadCarsFromQueue() throws Exception {
+        File queueFolder = new File("src/main/java/oop/practice/lab3/generator/queue");  // Correct folder path
+        File[] files = queueFolder.listFiles((dir, name) -> name.endsWith(".json")); // Only JSON files
+
+        if (files == null || files.length == 0) {
+            System.out.println("No JSON files found in the queue folder.");
+            return;
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper(); // Jackson ObjectMapper to read JSON files
+
+        for (File file : files) {
+            Car car = objectMapper.readValue(file, Car.class); // Deserialize into Car object
+            addCar(car); // Add car to the queue
+        }
     }
 
     // Adds a car to the queue

@@ -2,13 +2,13 @@ package oop.practice.lab3.task1;
 
 // Car.java
 public class Car {
-    private int id;
+    private String id;
     private String type;        // ELECTRIC / GAS
     private String passengers;  // PEOPLE / ROBOTS
     private boolean isDining;   // true / false
     private int consumption;    // 10 - 50
 
-    public Car(int id, String type, String passengers, boolean isDining, int consumption) {
+    public Car(String id, String type, String passengers, boolean isDining, int consumption) {
         this.id = id;
         this.type = type;
         this.passengers = passengers;
@@ -16,7 +16,7 @@ public class Car {
         this.consumption = consumption;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

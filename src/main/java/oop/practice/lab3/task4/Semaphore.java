@@ -30,6 +30,9 @@ public class Semaphore {
             routeCar(car); // Route the car to the appropriate station
         }
     }
+    public boolean isQueueEmpty() {
+        return stations.isEmpty();
+    }
 
     // Routes a car to an appropriate station
     private void routeCar(Car car) {

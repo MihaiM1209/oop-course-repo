@@ -17,6 +17,9 @@ public class CarStation {
         this.carQueue = new LinkedList<>();
         this.carsServedCount = 0;
     }
+    public int getTotalConsumption() {
+        return carQueue.stream().mapToInt(Car::getConsumption).sum();
+    }
 
     // Determines if this station can accept the given car
     public boolean acceptsCar(Car car) {
@@ -49,4 +52,5 @@ public class CarStation {
     public int getCarsServedCount() {
         return carsServedCount;
     }
+
 }
